@@ -1,0 +1,57 @@
+[gd_scene format=2]
+
+[node name="PlayerUI" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -240.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = 248.0
+color = Color( 0.188235, 0.188235, 0.188235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="Label" parent="ColorRect"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 216.0
+margin_bottom = 226.0
+text = "Test text
+Test Quest
+Test Objective
+Test Side Quest
+1
+2
+3
+4
+5
+6
+7
+8
+9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 56.0
+color = Color( 0.882353, 0.54902, 0.54902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 16.0
+margin_top = 72.0
+margin_right = 264.0
+margin_bottom = 96.0
+color = Color( 0.537255, 0.592157, 0.894118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
