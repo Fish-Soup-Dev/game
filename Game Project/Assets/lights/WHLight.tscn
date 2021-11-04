@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/lights/chain4.png" type="Texture" id=1]
+[ext_resource path="res://Assets/lights/light bottom.png" type="Texture" id=2]
+[ext_resource path="res://Assets/lights/light.png" type="Texture" id=3]
+[ext_resource path="res://Assets/lights/light top.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=9]
+height = 92.8824
+
+[sub_resource type="CapsuleShape2D" id=8]
+height = 86.2082
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 9.90974, 6.38346 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 133.912, 137.597, 100.696, 98.4955, -93.9714, 98.4955, -125.505, 137.597, -114.994, 137.597, -92.7101, 108.586, 98.1734, 108.166, 125.082, 137.597 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 133.603, 19.4196 )
+
+[node name="WHLight" type="Node2D"]
+
+[node name="RightChain" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+mass = 2.04082
+gravity_scale = 2.07
+
+[node name="LightChainSprite2" type="Sprite" parent="RightChain"]
+light_mask = 2
+position = Vector2( 65.1692, 0.218143 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+offset = Vector2( -0.516919, 5.47819 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightChain"]
+position = Vector2( 65.0734, 54.7284 )
+shape = SubResource( 9 )
+
+[node name="LeftChain" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+mass = 2.04082
+gravity_scale = 2.24
+
+[node name="LightChainSprite" type="Sprite" parent="LeftChain"]
+light_mask = 2
+position = Vector2( 144.014, 17.5907 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+offset = Vector2( -21.4014, 3.74093 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftChain"]
+position = Vector2( -64.7397, 54.7284 )
+shape = SubResource( 8 )
+
+[node name="Top" type="Node2D" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Top"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/StaticBody2D2"]
+position = Vector2( 64.653, -11.7726 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Top"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/StaticBody2D"]
+position = Vector2( -65.4939, -11.7726 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="TopOfLightSprite" type="Sprite" parent="Top"]
+scale = Vector2( 10, 10 )
+texture = ExtResource( 4 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=[
+"bodies",
+]]
+gravity_scale = 46.59
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RigidBody2D"]
+position = Vector2( 0, 0.33371 )
+occluder = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LightSprite" type="Sprite" parent="RigidBody2D"]
+light_mask = 2
+position = Vector2( 0, 123 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light2D" type="Light2D" parent="RigidBody2D"]
+position = Vector2( -0.0243073, 113.787 )
+texture = ExtResource( 3 )
+texture_scale = 2.74
+shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 4.33823, 117.466 )
+shape = SubResource( 7 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2( -65.5334, 0.00888824 )
+node_a = NodePath("../Top/StaticBody2D")
+node_b = NodePath("../LeftChain")
+softness = 0.3
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2( -64.7397, 96.2888 )
+node_a = NodePath("../LeftChain")
+node_b = NodePath("../RigidBody2D")
+softness = 0.3
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2( 64.7397, -0.180523 )
+node_a = NodePath("../Top/StaticBody2D2")
+node_b = NodePath("../RightChain")
+softness = 0.3
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2( 65.0734, 97.2087 )
+node_a = NodePath("../RightChain")
+node_b = NodePath("../RigidBody2D")
+softness = 0.3
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2( 151.704, 70.1702 )
+rotation = 1.0472
+node_a = NodePath("../Lamp")
+node_b = NodePath("../RightChain")
+length = 70.0
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="."]
+position = Vector2( -143.66, 69.8457 )
+rotation = -1.0472
+node_a = NodePath("../Lamp")
+node_b = NodePath("../LeftChain")
+length = 70.0

@@ -3,7 +3,7 @@
 [ext_resource path="res://entitys/Help/Hint.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 72, 168 )
+extents = Vector2( 91.7447, 63.1581 )
 
 [node name="Hint" type="Area2D"]
 collision_layer = 2
@@ -15,6 +15,7 @@ shape = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
+light_mask = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -39,4 +40,3 @@ __meta__ = {
 }
 
 [connection signal="body_entered" from="." to="." method="_on_Hint_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Hint_body_exited"]

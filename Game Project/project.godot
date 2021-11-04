@@ -15,13 +15,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Game Project"
+run/main_scene="res://levels/Test/Test_dr0.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-RestHandler="*res://addons/github-integration/scripts/RestHandler.gd"
 
 [display]
 

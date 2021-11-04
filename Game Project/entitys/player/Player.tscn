@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entitys/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://entitys/player/PlayerUI.tscn" type="PackedScene" id=2]
@@ -6,17 +6,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -19.9542, -19.7374, 20.3142, -19.8777, 20.4545, 20.5309, -19.8139, 20.3906 )
-
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 320.362, 248 )
+position = Vector2( 638.201, 512.866 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
+jump_speed = -1300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -41,6 +40,3 @@ current = true
 smoothing_enabled = true
 
 [node name="PlayerUI" parent="Camera2D" instance=ExtResource( 2 )]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 2 )
