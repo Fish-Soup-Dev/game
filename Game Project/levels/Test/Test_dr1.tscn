@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/floors/Ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entitys/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/door/Door.tscn" type="PackedScene" id=3]
+
+[node name="Test_dr1" type="Node"]
+pause_mode = 2
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 472 )
+
+[node name="Ground" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184, 608 )

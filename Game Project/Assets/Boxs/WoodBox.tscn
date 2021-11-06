@@ -10,6 +10,7 @@ extents = Vector2( 40.1421, 40.3926 )
 ]]
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 2
 scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 

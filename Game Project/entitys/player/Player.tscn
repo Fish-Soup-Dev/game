@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entitys/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://entitys/player/PlayerUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Bug/bug1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Bug/bug3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Bug/bug2.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 20 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40.299, 24.616 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 638.201, 512.866 )
@@ -18,21 +34,12 @@ __meta__ = {
 jump_speed = -1300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-color = Color( 0.305882, 0.545098, 0.384314, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 5, 5 )
+frames = SubResource( 1 )
+animation = "stand"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -150 )
