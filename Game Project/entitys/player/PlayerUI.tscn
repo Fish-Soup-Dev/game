@@ -1,6 +1,9 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entitys/player/PlayerUI.gd" type="Script" id=1]
 
 [node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 1.0
