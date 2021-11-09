@@ -6,6 +6,7 @@ export (int) var gravity = 4000
 export (int) var inertia = 100
 
 var velocity = Vector2.ZERO
+var jump_count = 0
 
 func _ready():
 	$AnimatedSprite.play()
@@ -28,8 +29,12 @@ func _process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP, false, 4 ,PI/4, false)
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if jump_count < 1:
 			velocity.y = jump_speed
+			jump_count += 1
+	
+	if is_on_floor():
+		jump_count = 0
 	
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)

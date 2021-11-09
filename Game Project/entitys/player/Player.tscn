@@ -6,20 +6,20 @@
 [ext_resource path="res://Assets/Bug/bug3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Bug/bug2.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40.299, 24.616 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "stand",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -34,11 +34,12 @@ __meta__ = {
 jump_speed = -1300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+light_mask = 2
 scale = Vector2( 5, 5 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "stand"
 
 [node name="Camera2D" type="Camera2D" parent="."]
