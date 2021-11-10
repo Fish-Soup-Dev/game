@@ -5,6 +5,8 @@ export (int) var jump_speed = -1000
 export (int) var gravity = 4000
 export (int) var inertia = 100
 
+export (int) var health = 200
+ 
 var velocity = Vector2.ZERO
 var jump_count = 0
 
@@ -40,3 +42,9 @@ func _process(delta):
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("bodies"):
 			collision.collider.apply_central_impulse(-collision.normal * inertia)
+
+func _on_HelpTrigger_TextUpdate(mesage):
+	$Camera2D/PlayerUI/Control/Label.text = mesage
+
+func _on_KeyBlock_ItemRecived(name):
+	pass # Replace with function body.

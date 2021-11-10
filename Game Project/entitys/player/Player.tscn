@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Bug/bug2.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40.299, 24.616 )
+extents = Vector2( 37.5, 22.5 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -34,6 +34,7 @@ __meta__ = {
 jump_speed = -1300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.299011, -0.366028 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

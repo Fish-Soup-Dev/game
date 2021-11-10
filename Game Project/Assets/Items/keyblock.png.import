@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bug3.png-2cf7485c0fa96c178a3974260e51f0db.stex"
+path="res://.import/keyblock.png-87cb04d3d0b1e7c3daadaa8034f8f4d4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bug/bug3.png"
-dest_files=[ "res://.import/bug3.png-2cf7485c0fa96c178a3974260e51f0db.stex" ]
+source_file="res://Assets/Items/keyblock.png"
+dest_files=[ "res://.import/keyblock.png-87cb04d3d0b1e7c3daadaa8034f8f4d4.stex" ]
 
 [params]
 

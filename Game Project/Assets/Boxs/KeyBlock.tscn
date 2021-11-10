@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Items/keyblock.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Actions/action key2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Actions/action key.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Boxs/KeyBlock.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 128, 120 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "act",
+"speed": 3.0
+} ]
+
+[node name="KeyBlock" type="Area2D"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+
+[node name="ActionSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 88, -40 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 2 )
+animation = "act"
+frame = 1
+playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_KeyBlock_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_KeyBlock_body_exited"]
